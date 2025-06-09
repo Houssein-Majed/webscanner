@@ -1,0 +1,14 @@
+# Fichiers Python
+__pycache__/
+*.pyc
+
+# Fichiers générés
+rapport.html
+*.log
+
+# Dossiers temporaires
+.dist/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
