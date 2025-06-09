@@ -46,8 +46,6 @@ webscanner/
 ## ⚙️ Installation
 
 ### 1. Cloner le projet :
-
-```bash
 git clone https://github.com/ton-utilisateur/webscanner.git
 cd webscanner
 
@@ -66,6 +64,8 @@ Leur type (ex. : XSS, LFI...)
 Leur niveau de dangerosité (Critique, Moyen, Info)
 
 Des liens vers les solutions recommandées
+
+---
 
 📚 Exemples de payloads
 Le fichier payloads.txt inclut plusieurs types de tests :
@@ -89,10 +89,14 @@ Ajouter ou modifier des payloads → payloads.txt
 
 Modifier le style ou le contenu du rapport → utils/report.py
 
+---
+
 🔒 Avertissement
 ⚠️ Ce projet est destiné à des fins éducatives uniquement.
 N’utilisez cet outil que sur vos propres serveurs ou avec autorisation explicite.
 Toute utilisation abusive est interdite.
+
+---
 
 📄 Licence
 MIT License — Libre pour usage, modification et distribution.
