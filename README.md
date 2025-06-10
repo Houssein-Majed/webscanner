@@ -20,7 +20,7 @@ Il permet de détecter les failles courantes comme :
 ---
 
 ## 📁 Arborescence
-
+```text
 webscanner/
 │
 ├── scanner.py # Script principal
@@ -40,7 +40,7 @@ webscanner/
 │ ├── detection_signatures.py # Signatures pour détection réelle
 │
 └── pycache/ # Fichiers Python compilés (à ignorer)
-
+```
 ---
 
 ## ⚙️ Installation
@@ -67,7 +67,7 @@ Des liens vers les solutions recommandées
 
 ---
 
-📚 Exemples de payloads
+## 📚 Exemples de payloads
 Le fichier payloads.txt inclut plusieurs types de tests :
 
 SQLi : ' OR 1=1 --
@@ -82,7 +82,7 @@ Command Injection : $(id)
 
 SSTI : {{7*7}}
 
-🛠 Personnalisation
+## 🛠 Personnalisation
 Ajouter des chemins à tester → paths.txt
 
 Ajouter ou modifier des payloads → payloads.txt
@@ -91,12 +91,12 @@ Modifier le style ou le contenu du rapport → utils/report.py
 
 ---
 
-🔒 Avertissement
+## 🔒 Avertissement
 ⚠️ Ce projet est destiné à des fins éducatives uniquement.
 N’utilisez cet outil que sur vos propres serveurs ou avec autorisation explicite.
 Toute utilisation abusive est interdite.
 
 ---
 
-📄 Licence
+## 📄 Licence
 MIT License — Libre pour usage, modification et distribution.
